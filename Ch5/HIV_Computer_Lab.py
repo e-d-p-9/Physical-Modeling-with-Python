@@ -76,15 +76,40 @@ def bacteria_v_t(t, r):
 def bacteria_w_t(t, r, A):
     return A * (np.e**(-t/r) - 1 + (t/r))
 
+
+
+# TODO: create a list two lists of r remaining 1 and A remaining 1 and varying the other
+r_vary = A_vary = np.linspace(0, 1, endpoint=True, num=10)
+r_const = 1
+A_const = 1
+
 A = 1
 r = 1
-time_step = 0.01
-time_start = 0.0001
-time_stop = 2.0 + time_step
-bacteria_time = np.arange(time_start, time_stop, time_step)
+# time_step = 0.01
+# time_start = 0.0001
+# time_stop = 2.0 + time_step
+# bacteria_time = np.arange(time_start, time_stop, time_step)
+bacteria_time = np.linspace(0.001, 2.001, num=len(A_vary))
 
-w1 = bacteria_w_t(bacteria_time, r, A)
-plt.plot(bacteria_time, w1)
+w_i = [bacteria_w_t(bacteria_time, r_const, A_i) for A_i in A_vary]
 
-plt.title("Novick-Weiner W(t)")
+i = 0
+for w in w_i:
+    plt_label = "r=1; A=" + str(A_vary[i])
+    plt.plot(bacteria_time, w, label=plt_label)
+    i += 1
+plt.legend()
+plt.show()
+
+
+
+# w1 = bacteria_w_t(bacteria_time, r, A)
+# plt.plot(bacteria_time, w1)
+
+
+# plt.title("Novick-Weiner W(t)")
+
+
+
+
 
