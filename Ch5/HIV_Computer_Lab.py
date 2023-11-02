@@ -37,6 +37,10 @@ A = 10**5.2
 B = 0
 alpha = 10**1/22
 beta = 10**0
+# alpha = 10**-0.3
+# beta = 10**0
+# A = 10**5.2
+# B = 0
 
 # evaluate viral model over time
 viral_load = viral_load_model(time, alpha, beta, A, B)
