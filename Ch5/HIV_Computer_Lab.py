@@ -142,12 +142,8 @@ plt.show()
 plt.close()
 
 
+# TODO: read in time series data from bacterial population in a culture
 
-# w1 = bacteria_w_t(bacteria_time, r, A)
-# plt.plot(bacteria_time, w1)
-
-
-# plt.title("Novick-Weiner W(t)")
 
 
 
