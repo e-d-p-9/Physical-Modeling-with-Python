@@ -33,7 +33,7 @@ def viral_load_model(t, alpha, beta, A, B):
     return A * np.exp(-alpha * t) + B * np.exp(-beta * t)
 
 # set model parameters
-A = 10**5.2
+A = 10**6
 B = 0
 alpha = 10**1/22
 beta = 10**0
@@ -70,6 +70,7 @@ plt.close()
 print(1/alpha)
 
 #%% Bacterial
+# define growth models
 def bacteria_v_t(t, r):
     return 1 - np.e**(-t/r)
 
@@ -89,17 +90,32 @@ r = 1
 # time_start = 0.0001
 # time_stop = 2.0 + time_step
 # bacteria_time = np.arange(time_start, time_stop, time_step)
+
+# define a a time discretization for the bacteria growth models
 bacteria_time = np.linspace(0.001, 2.001, num=len(A_vary))
 
-w_i = [bacteria_w_t(bacteria_time, r_const, A_i) for A_i in A_vary]
 
-i = 0
-for w in w_i:
-    plt_label = "r=1; A=" + str(A_vary[i])
-    plt.plot(bacteria_time, w, label=plt_label)
-    i += 1
+w_Ai = [bacteria_w_t(bacteria_time, r_const, A_i) for A_i in A_vary]
+
+# index for incrementing through A values for plot labels
+A_index = 0
+# plot each w(t) bacteria evaluation for the varying values of A from 0 to 1
+for w_i in w_Ai:
+    # create label
+    plt_label = "A=" + str(A_vary[A_index])
+    # plot w(t) for current evaluation with A ranging from 0 to 1
+    plt.plot(bacteria_time, w_i, label=plt_label)
+    # increment A index to label the next plot appropriately
+    A_index += 1
+# show the values of A that alter the curve with legend
 plt.legend()
+# set title
+plt.title("Norvick W(t) with varying values for A [0,1]; r=1")
+# set axis labels
+plt.xlabel("time in hours")
+plt.ylabel("Fraction of maximum beta-galactosidase activity")
 plt.show()
+plt.close()
 
 
 
