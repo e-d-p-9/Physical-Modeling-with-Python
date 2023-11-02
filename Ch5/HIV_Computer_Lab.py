@@ -129,7 +129,7 @@ for w_i in w_ri:
     plt_label = "r=" + str(r_vary[r_index])
     # plot w(t) for current evaluation with A ranging from 0 to 1
     plt.plot(bacteria_time, w_i, label=plt_label)
-    # increment A index to label the next plot appropriately
+    # increment r index to label the next plot appropriately
     r_index += 1
 # show the values of A that alter the curve with legend
 plt.legend()
