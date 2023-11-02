@@ -95,7 +95,10 @@ r = 1
 bacteria_time = np.linspace(0.001, 2.001, num=len(A_vary))
 
 
+# evaluate w(t) for A = [0,1] r = 1
 w_Ai = [bacteria_w_t(bacteria_time, r_const, A_i) for A_i in A_vary]
+# evaluate w(t) for A = 1 r = [0,1]
+w_ri = [bacteria_w_t(bacteria_time, r_i, A_const) for r_i in r_vary]
 
 # index for incrementing through A values for plot labels
 A_index = 0
@@ -110,7 +113,28 @@ for w_i in w_Ai:
 # show the values of A that alter the curve with legend
 plt.legend()
 # set title
-plt.title("Norvick W(t) with varying values for A [0,1]; r=1")
+plt.title("Norvick W(t) with varying values for A=0,1]; r=1")
+# set axis labels
+plt.xlabel("time in hours")
+plt.ylabel("Fraction of maximum beta-galactosidase activity")
+plt.show()
+plt.close()
+
+
+# index for incrementing through A values for plot labels
+r_index = 0
+# plot each w(t) bacteria evaluation for the varying values of A from 0 to 1
+for w_i in w_ri:
+    # create label
+    plt_label = "r=" + str(r_vary[r_index])
+    # plot w(t) for current evaluation with A ranging from 0 to 1
+    plt.plot(bacteria_time, w_i, label=plt_label)
+    # increment A index to label the next plot appropriately
+    r_index += 1
+# show the values of A that alter the curve with legend
+plt.legend()
+# set title
+plt.title("Norvick W(t) with varying values for r=[0,1]; A=1")
 # set axis labels
 plt.xlabel("time in hours")
 plt.ylabel("Fraction of maximum beta-galactosidase activity")
