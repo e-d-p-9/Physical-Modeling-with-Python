@@ -143,6 +143,34 @@ plt.close()
 
 
 # TODO: read in time series data from bacterial population in a culture
+bacteria_data_file = "pmls-data-master/15novick/g149novickA.csv"
+bacteria_data = np.loadtxt(bacteria_data_file, delimiter=',')
+plt.plot(bacteria_data[:,0], bacteria_data[:,1], 'ko')
+plt.title("Data for protein folding")
+plt.xlabel("time in hours")
+plt.ylabel("Fraction of maximum beta-galactosidase activity")
+
+
+# TODO: clean up doc string at top of file
+# TODO: restructure file
+# TODO: refactor remove redundancy in plots from above code for varying r and A
+# TODO: plot the experimental data points and the trial functions v(t) on the same axis
+# TODO: plot the experimental data points and the trial functions w(t) on the same axis
+# TODO: create plots varying r for v(t) as did with A and r for w(t)
+# TODO: consolidate all todos
+# TODO:plot the data as points, select some values for r and see if a curve fits the data
+# TODO: label curves then add a legend to identify which curve is which
+# TODO: to find a good estimateof r make a semilog plot of the quantity 1.0 - data versus time, where data is the array of experimental data points
+# TODO: can you explain why this is helpful
+# TODO: now try the same thing using the data in gl49novickB and gl49novickA
+# TODO: plot data a and data b on same scatter plot
+# TODO: with norvickB this time throw away all data with the time value greater than ten hours and attempt to fit the remaining data to the family of functions W(t) in equation 
+# TODO: you can throw away data by slicing the array
+# TODO: at large values of t but smaller than ten hours, bot the data and the function W(t)
+#           become straight lines.  Find the slope and the y intercept of the straight line
+#           determined by the data.  From this figure out some good initial guesses
+#           for the values of A and r, then tweak the values to get a nicer looking fit.
+
 
 
 
