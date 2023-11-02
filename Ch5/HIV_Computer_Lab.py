@@ -113,7 +113,7 @@ for w_i in w_Ai:
 # show the values of A that alter the curve with legend
 plt.legend()
 # set title
-plt.title("Norvick W(t) with varying values for A=0,1]; r=1")
+plt.title("Norvick W(t) with varying values for A=[0,1]; r=1")
 # set axis labels
 plt.xlabel("time in hours")
 plt.ylabel("Fraction of maximum beta-galactosidase activity")
