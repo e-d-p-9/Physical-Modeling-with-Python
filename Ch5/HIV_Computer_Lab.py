@@ -24,6 +24,7 @@ and b is the rate at which virons are removed from the blood
 import matplotlib.pyplot as plt
 import numpy as np
 
+#%% HIV
 # discretize time for viral load model
 time = np.linspace(0, 10, 101)
 
@@ -58,6 +59,28 @@ plt.plot(time_exp, concentration, 'ko', \
 plt.xlabel('days since starting antiretroviral drug')
 plt.ylabel('number of virons in the blood')
 plt.legend()
+plt.show()
+plt.close()
 
 # print inverse of t cell infection rate alpha
 print(1/alpha)
+
+#%% Bacterial
+def bacteria_v_t(t, r):
+    return 1 - np.e**(-t/r)
+
+def bacteria_w_t(t, r, A):
+    return A * (np.e**(-t/r) - 1 + (t/r))
+
+A = 1
+r = 1
+time_step = 0.01
+time_start = 0.0001
+time_stop = 2.0 + time_step
+bacteria_time = np.arange(time_start, time_stop, time_step)
+
+w1 = bacteria_w_t(bacteria_time, r, A)
+plt.plot(bacteria_time, w1)
+
+plt.title("Novick-Weiner W(t)")
+
