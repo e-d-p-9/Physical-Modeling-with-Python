@@ -143,7 +143,7 @@ plt.close()
 
 
 # TODO: read in time series data from bacterial population in a culture
-bacteria_data_file = "pmls-data-master/15novick/g149novickA.csv"
+bacteria_data_file = "../pmls-data-master/15novick/g149novickA.csv"
 bacteria_data = np.loadtxt(bacteria_data_file, delimiter=',')
 plt.plot(bacteria_data[:,0], bacteria_data[:,1], 'ko')
 plt.title("Data for protein folding")
