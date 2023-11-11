@@ -1,0 +1,2 @@
+TODO: finish todos in ch5 lab 1 notebook
+TODO: convert solutions in ch5 lab 1 notebook into hiv_computer_lab.py
