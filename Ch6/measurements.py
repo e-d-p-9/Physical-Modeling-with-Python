@@ -1,3 +1,21 @@
+import numpy as np
+def distance(pointA, pointB=(0, 0), metric='taxi'):
+    """
+    Return distance in city blocks between points A, and B.
+    If metric is 'taxi' (or omitted), use taxicab metric.
+    Otherwise, use Euclidean distance
+        pointA = (x1, y1)
+        pointB = (x2, y2)
+    If pointB is omitted, use the origin.
+    """
+    if metric == 'taxi':
+        interval = abs(pointB[0] - pointA[0]) + abs(pointB[1] - pointA[1])
+    else:
+        interval = np.sqrt( (pointB[0] - pointA[0])**2 \
+                            + (pointB[1] - pointA[1])**2 )
+    
+    return interval
+
 def taxicab(pointA, pointB):
     """
     Taxicab metric for computing distance between points A and B.
