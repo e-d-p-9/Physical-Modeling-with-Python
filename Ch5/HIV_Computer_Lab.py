@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+#_____________________________________________________________________________
+# TODO TRUNCATE  BELOW THIS LINE
 """
 explore the model of the viral load (number of virons in the blood of HIV
                                      infected patient)
@@ -177,3 +179,4 @@ plt.ylabel("Fraction of maximum beta-galactosidase activity")
 
 
 
+# TODO: pull in solutions from notebook
