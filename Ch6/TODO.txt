@@ -1,2 +1,4 @@
 TODO: start chapter 6 notes
 
+TODO: camera perspective trandforms and applications notebook playground like trailer ball view or combined cameras to create 360 birds eye view warp to see into distance not just down
+
